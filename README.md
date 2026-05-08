@@ -89,9 +89,8 @@ Data moves through four clearly separated layers, each with a single responsibil
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**Architecture diagram (visual):** `architecture.svg` in this repository  
-**Editable version (Draw.io):** *(paste your Draw.io / Miro link here)*
-
+**Architecture diagram (visual):** `architecture.drawio` in this repository  
+**Editable version (Draw.io):** [View on Draw.io](https://app.diagrams.net/#Uhttps://raw.githubusercontent.com/luckydus5/G10-momo-sms-analytics/main/architecture.drawio)
 ---
 
 ## Project Structure
@@ -104,7 +103,7 @@ G10-momo-sms-analytics/
 ├── .gitignore                        # Ignores raw data, venv, __pycache__, .env
 ├── .env.example                      # Environment variable template
 ├── requirements.txt                  # All Python dependencies with pinned versions
-├── architecture.svg                  # System architecture diagram
+├── architecture.drawio               # System architecture diagram
 │
 ├── frontend/                         # Everything the browser touches
 │   ├── index.html                    # Dashboard entry point
@@ -183,7 +182,7 @@ G10-momo-sms-analytics/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-org/G10-momo-sms-analytics.git
+git clone https://github.com/luckydus5/G10-momo-sms-analytics.git
 cd G10-momo-sms-analytics
 
 # 2. Create and activate a virtual environment
