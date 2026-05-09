@@ -319,7 +319,7 @@ The team manages all work using a Kanban board with three columns:
 
 Tasks created for Sprint 1 include repository setup, architecture diagram, XML parser research, database schema design, ETL skeleton, and frontend scaffolding.
 
-**Scrum Board Link:** *(paste your GitHub Projects / Trello / Jira link here)*
+**Scrum Board Link:** https://github.com/users/luckydus5/projects/1/views/1
 
 ---
 
