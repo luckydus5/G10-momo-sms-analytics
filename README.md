@@ -11,7 +11,7 @@ A data pipeline and analytics dashboard that transforms raw MTN Mobile Money SMS
 | Name | Role | GitHub |
 |---|---|---|
 | Gabriel Mugisha | Team Lead · Backend Architecture | [@GabbyIT-Pixel](https://github.com/GabbyIT-Pixel) |
-| Olivier Dusabamahoro | ETL Pipeline · Database Design | [@olivier-dusabamahoro](https://github.com/olivier-dusabamahoro) |
+| Olivier Dusabamahoro | ETL Pipeline · Database Design | [@luckydus5](https://github.com/luckydus5) |
 | James Kanneh | Frontend · Data Visualization | [@JamesKanneh](https://github.com/JamesKanneh) |
 
 ---
