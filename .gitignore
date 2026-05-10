@@ -1,7 +1,14 @@
-data/raw/
+# Ignore raw inputs and runtime artifacts, but keep folder structure committed
+data/raw/*
+!data/raw/.gitkeep
 data/db.sqlite3
-data/logs/
+data/logs/*
+!data/logs/dead_letter/
+data/logs/dead_letter/*
+!data/logs/dead_letter/.gitkeep
+
 venv/
+.venv/
 __pycache__/
 *.pyc
 *.pyo
