@@ -11,7 +11,7 @@ A data pipeline and analytics dashboard that transforms raw MTN Mobile Money SMS
 | Name | Role | GitHub |
 |---|---|---|
 | Gabriel Mugisha | Team Lead · Backend Architecture | [@GabbyIT-Pixel](https://github.com/GabbyIT-Pixel) |
-| Olivier Dusabamahoro | ETL Pipeline · Database Design | [@luckydus5](https://github.com/luckydus5) |
+| Olivier Dusabamahoro | Scrum Board Setup · ETL Pipeline · Database Design | [@luckydus5](https://github.com/luckydus5) |
 | James Kanneh | Frontend · Data Visualization | [@JamesKanneh](https://github.com/JamesKanneh) |
 
 ---
@@ -54,7 +54,13 @@ A data pipeline and analytics dashboard that transforms raw MTN Mobile Money SMS
 
 ## Scrum Board
 
+**Owner:** Olivier Dusabamahoro ([@luckydus5](https://github.com/luckydus5))
 **Link:** [GitHub Projects Board](https://github.com/users/luckydus5/projects/1/views/1)
+
+The board uses three columns — **To Do**, **In Progress**, **Done** — and is
+seeded with the Week 1 setup tasks (team repo, README, architecture diagram,
+Scrum board, project structure) plus initial Week 2 tickets for the ETL
+pipeline, database schema, API, and frontend dashboard.
 
 ---
 
