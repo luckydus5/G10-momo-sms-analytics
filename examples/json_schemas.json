@@ -1,0 +1,236 @@
+{
+  "_comment": "G10 MoMo SMS Analytics – JSON Schemas | Based on real modified_sms_v2.xml (1,691 records) | Team: Gabriel Mugisha, Olivier Dusabamahoro, James Kanneh",
+
+  "_xml_structure_note": "Each SMS in the XML has: address=M-Money, date=[unix_ms], body=[message text], readable_date=[human date], service_center=+250788110381",
+
+  "transaction_category": {
+    "_description": "Single category – GET /categories/{id}. All 9 types derived from real XML pattern analysis.",
+    "category_id": 3,
+    "category_code": "MERCHANT_PAYMENT",
+    "category_name": "Merchant Payment",
+    "sms_pattern": "TxId:X. Your payment of X RWF to",
+    "description": "Payment to a merchant using MoMo. 687 records – largest category in dataset.",
+    "is_active": true,
+    "created_at": "2024-05-10T00:00:00Z"
+  },
+
+  "user": {
+    "_description": "Single user – GET /users/{id}. Account owner identified as Abebe Chala CHEBUDIE, MoMo ID 36521838.",
+    "user_id": 1,
+    "phone_number": null,
+    "momo_account_id": "36521838",
+    "full_name": "Abebe Chala CHEBUDIE",
+    "account_type": "personal",
+    "is_account_owner": true,
+    "created_at": "2024-05-10T00:00:00Z",
+    "updated_at": "2024-05-10T00:00:00Z"
+  },
+
+  "transaction_flat": {
+    "_description": "Flat transaction record – GET /transactions/{id}. Uses real values from XML record 76662021700.",
+    "transaction_id": 1,
+    "financial_tx_id": "76662021700",
+    "category_id": 1,
+    "counterparty_id": 3,
+    "amount": 2000.0,
+    "currency": "RWF",
+    "fee": 0.0,
+    "balance_after": 2000.0,
+    "transaction_date": "2024-05-10T16:30:51Z",
+    "sms_date_unix": 1715351458724,
+    "sms_readable_date": "10 May 2024 4:30:58 PM",
+    "direction": "incoming",
+    "status": "completed",
+    "created_at": "2024-05-10T16:30:58Z"
+  },
+
+  "tag": {
+    "_description": "Single tag – GET /tags/{id}",
+    "tag_id": 2,
+    "tag_name": "groceries",
+    "color_hex": "#10B981",
+    "created_at": "2024-05-10T00:00:00Z"
+  },
+
+  "system_log": {
+    "_description": "Single log entry – GET /logs/{id}. OTP messages are non-financial and go directly to dead-letter.",
+    "log_id": 4,
+    "transaction_id": null,
+    "log_level": "WARNING",
+    "event_type": "PARSE_SKIP",
+    "message": "OTP notification SMS – non-financial, skipped. Sent to dead-letter.",
+    "source_file": "etl/categorize.py",
+    "raw_input": "<#> Dear Customer, your MTN MoMo application one-time password is :2476. MTN MoMo does not recommend that you share or expose your one-time password with anyone.",
+    "created_at": "2024-05-26T13:17:31Z"
+  },
+
+  "transaction_full": {
+    "_description": "Complete nested transaction – GET /transactions/{id}?expand=all. Uses real XML record: MERCHANT_PAYMENT TxId 73214484437 from 10 May 2024. This is the primary response shape used by the frontend dashboard.",
+    "transaction_id": 2,
+    "financial_tx_id": "73214484437",
+    "amount": 1000.0,
+    "currency": "RWF",
+    "fee": 0.0,
+    "balance_after": 1000.0,
+    "transaction_date": "2024-05-10T16:31:39Z",
+    "sms_date_unix": 1715351506754,
+    "sms_readable_date": "10 May 2024 4:31:46 PM",
+    "direction": "outgoing",
+    "status": "completed",
+
+    "category": {
+      "category_id": 3,
+      "category_code": "MERCHANT_PAYMENT",
+      "category_name": "Merchant Payment",
+      "sms_pattern": "TxId:X. Your payment of X RWF to"
+    },
+
+    "counterparty": {
+      "user_id": 3,
+      "phone_number": "+250790777777",
+      "full_name": "Jane Smith",
+      "account_type": "personal"
+    },
+
+    "tags": [
+      {
+        "tag_id": 2,
+        "tag_name": "groceries",
+        "color_hex": "#10B981"
+      }
+    ],
+
+    "logs": [
+      {
+        "log_id": 2,
+        "log_level": "INFO",
+        "event_type": "PARSE_SUCCESS",
+        "message": "Record 73214484437 parsed and loaded – MERCHANT_PAYMENT.",
+        "source_file": "etl/parse_xml.py",
+        "created_at": "2024-05-10T16:31:46Z"
+      }
+    ],
+
+    "raw_sms_body": "TxId: 73214484437. Your payment of 1,000 RWF to Jane Smith 12845 has been completed at 2024-05-10 16:31:39. Your new balance: 1,000 RWF. Fee was 0 RWF.",
+
+    "meta": {
+      "created_at": "2024-05-10T16:31:46Z",
+      "updated_at": "2024-05-10T16:31:46Z"
+    }
+  },
+
+  "analytics_summary": {
+    "_description": "Aggregated analytics – GET /analytics/summary. Counts based on full XML dataset (1,691 records).",
+    "generated_at": "2024-10-07T14:37:00Z",
+    "source_file": "modified_sms_v2.xml",
+    "total_sms_records": 1691,
+    "period": {
+      "from": "2024-05-10T00:00:00Z",
+      "to": "2024-10-07T23:59:59Z"
+    },
+    "totals": {
+      "financial_transactions": 1649,
+      "non_financial_skipped": 42
+    },
+    "by_category": [
+      { "category_code": "MERCHANT_PAYMENT", "count": 687, "percentage": 41.7 },
+      {
+        "category_code": "OUTGOING_TRANSFER",
+        "count": 585,
+        "percentage": 35.5
+      },
+      { "category_code": "BANK_DEPOSIT", "count": 248, "percentage": 15.0 },
+      { "category_code": "THIRD_PARTY_DEBIT", "count": 36, "percentage": 2.2 },
+      { "category_code": "INCOMING_TRANSFER", "count": 63, "percentage": 3.8 },
+      { "category_code": "AIRTIME_TOPUP", "count": 15, "percentage": 0.9 },
+      { "category_code": "UTILITY_PAYMENT", "count": 11, "percentage": 0.7 },
+      { "category_code": "CASH_WITHDRAWAL", "count": 3, "percentage": 0.2 },
+      { "category_code": "REVERSAL", "count": 1, "percentage": 0.1 }
+    ],
+    "by_direction": [
+      { "direction": "outgoing", "count": 1340 },
+      { "direction": "incoming", "count": 314 },
+      { "direction": "neutral", "count": 37 }
+    ],
+    "skipped": [
+      { "event_type": "OTP_NOTIFICATION", "count": 8 },
+      { "event_type": "PROMOTIONAL_SMS", "count": 34 }
+    ]
+  },
+
+  "sql_to_json_mapping": {
+    "_description": "How each SQL column in TRANSACTIONS maps to its JSON field and type",
+    "transactions": {
+      "transaction_id": {
+        "json_field": "transaction_id",
+        "sql_type": "INT UNSIGNED",
+        "json_type": "number"
+      },
+      "financial_tx_id": {
+        "json_field": "financial_tx_id",
+        "sql_type": "VARCHAR(30)",
+        "json_type": "string|null — NULL for BANK_DEPOSIT and some OUTGOING_TRANSFER records"
+      },
+      "category_id": {
+        "json_field": "category.category_id",
+        "sql_type": "INT UNSIGNED",
+        "json_type": "number (nested object in full response)"
+      },
+      "counterparty_id": {
+        "json_field": "counterparty.user_id",
+        "sql_type": "INT UNSIGNED",
+        "json_type": "number|null (nested object in full response)"
+      },
+      "amount": {
+        "json_field": "amount",
+        "sql_type": "DECIMAL(15,2)",
+        "json_type": "number"
+      },
+      "currency": {
+        "json_field": "currency",
+        "sql_type": "CHAR(3)",
+        "json_type": "string — always RWF"
+      },
+      "fee": {
+        "json_field": "fee",
+        "sql_type": "DECIMAL(10,2)",
+        "json_type": "number — 0.00 when SMS states 'Fee was 0 RWF'"
+      },
+      "balance_after": {
+        "json_field": "balance_after",
+        "sql_type": "DECIMAL(15,2)",
+        "json_type": "number|null"
+      },
+      "transaction_date": {
+        "json_field": "transaction_date",
+        "sql_type": "DATETIME",
+        "json_type": "string (ISO 8601 UTC)"
+      },
+      "sms_date_unix": {
+        "json_field": "sms_date_unix",
+        "sql_type": "BIGINT",
+        "json_type": "number — Unix ms from XML date attribute"
+      },
+      "sms_readable_date": {
+        "json_field": "sms_readable_date",
+        "sql_type": "VARCHAR(40)",
+        "json_type": "string — readable_date from XML e.g. '10 May 2024 4:30:58 PM'"
+      },
+      "direction": {
+        "json_field": "direction",
+        "sql_type": "ENUM",
+        "json_type": "string — incoming/outgoing/neutral"
+      },
+      "status": {
+        "json_field": "status",
+        "sql_type": "ENUM",
+        "json_type": "string — completed/reversed/pending/failed"
+      },
+      "raw_sms_body": {
+        "json_field": "raw_sms_body",
+        "sql_type": "TEXT",
+        "json_type": "string|null — omitted in list API, included in single record and full expand"
+      }
+    }
+  }
+}
