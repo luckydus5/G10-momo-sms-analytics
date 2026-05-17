@@ -1,0 +1,218 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="DWHMfuQXrY4l86HqwiuL" name="Page-1">
+    <mxGraphModel dx="1585" dy="938" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1a1a2e;" value="MoMo SMS Analytics — Entity Relationship Diagram (Group 10)" vertex="1">
+          <mxGeometry height="40" width="800" x="399" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="users-header" parent="1" style="swimlane;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=13;" value="users" vertex="1">
+          <mxGeometry height="260" width="320" x="80" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="u1" parent="users-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fillColor=#fff2cc;strokeColor=#d6b656;" value="user_id (INT, PK, AUTO_INCREMENT)" vertex="1">
+          <mxGeometry height="30" width="320" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="u2" parent="users-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="full_name (VARCHAR 100, NOT NULL)" vertex="1">
+          <mxGeometry height="25" width="320" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u3" parent="users-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="phone_number (VARCHAR 20, UNIQUE)" vertex="1">
+          <mxGeometry height="25" width="320" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="u4" parent="users-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="account_number (VARCHAR 20, UNIQUE)" vertex="1">
+          <mxGeometry height="25" width="320" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="u5" parent="users-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="user_type (ENUM: &#39;account_holder&#39;,&#39;agent&#39;,&#39;merchant&#39;)" vertex="1">
+          <mxGeometry height="25" width="320" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="u6" parent="users-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="created_at (DATETIME, DEFAULT NOW())" vertex="1">
+          <mxGeometry height="25" width="320" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="u7" parent="users-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="is_active (TINYINT, DEFAULT 1)" vertex="1">
+          <mxGeometry height="25" width="320" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="u8" parent="users-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="updated_at (DATETIME)" vertex="1">
+          <mxGeometry height="25" width="320" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="cat-header" parent="1" style="swimlane;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=13;" value="transaction_categories" vertex="1">
+          <mxGeometry height="185" width="320" x="80" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" parent="cat-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fillColor=#fff2cc;strokeColor=#d6b656;" value="&amp;nbsp;category_id (INT, PK, AUTO_INCREMENT)" vertex="1">
+          <mxGeometry height="30" width="320" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" parent="cat-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="category_name (VARCHAR 50, UNIQUE, NOT NULL)" vertex="1">
+          <mxGeometry height="25" width="320" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" parent="cat-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="description (TEXT)" vertex="1">
+          <mxGeometry height="25" width="320" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" parent="cat-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="direction (ENUM: &#39;inbound&#39;,&#39;outbound&#39;,&#39;neutral&#39;)" vertex="1">
+          <mxGeometry height="25" width="320" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" parent="cat-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="created_at (DATETIME, DEFAULT NOW())" vertex="1">
+          <mxGeometry height="25" width="320" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" parent="cat-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="is_active (TINYINT, DEFAULT 1)" vertex="1">
+          <mxGeometry height="25" width="320" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="txn-header" parent="1" style="swimlane;startSize=30;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=13;" value="transactions" vertex="1">
+          <mxGeometry height="500" width="380" x="560" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fillColor=#fff2cc;strokeColor=#d6b656;" value="&amp;nbsp;transaction_id (INT, PK, AUTO_INCREMENT)" vertex="1">
+          <mxGeometry height="30" width="380" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="tx_ref (VARCHAR 30, UNIQUE, NOT NULL)" vertex="1">
+          <mxGeometry height="25" width="380" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t3" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fillColor=#f8cecc;strokeColor=#b85450;" value="&amp;nbsp;sender_id (INT, FK → users.user_id)" vertex="1">
+          <mxGeometry height="25" width="380" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="t4" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fillColor=#f8cecc;strokeColor=#b85450;" value="&amp;nbsp;receiver_id (INT, FK → users.user_id)" vertex="1">
+          <mxGeometry height="25" width="380" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="t5" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fillColor=#f8cecc;strokeColor=#b85450;" value="&amp;nbsp;category_id (INT, FK → transaction_categories)" vertex="1">
+          <mxGeometry height="25" width="380" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="t6" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="amount (DECIMAL 15,2, NOT NULL)" vertex="1">
+          <mxGeometry height="25" width="380" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="t7" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="fee (DECIMAL 10,2, DEFAULT 0.00)" vertex="1">
+          <mxGeometry height="25" width="380" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="t8" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="balance_after (DECIMAL 15,2)" vertex="1">
+          <mxGeometry height="25" width="380" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="t9" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="currency (VARCHAR 5, DEFAULT &#39;RWF&#39;)" vertex="1">
+          <mxGeometry height="25" width="380" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="t10" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="transaction_date (DATETIME, NOT NULL)" vertex="1">
+          <mxGeometry height="25" width="380" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="t11" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="status (ENUM: &#39;completed&#39;,&#39;failed&#39;,&#39;reversed&#39;)" vertex="1">
+          <mxGeometry height="25" width="380" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="t12" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="raw_sms_body (TEXT)" vertex="1">
+          <mxGeometry height="25" width="380" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="t13" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="sms_date_unix (BIGINT)" vertex="1">
+          <mxGeometry height="25" width="380" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="t14" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="created_at (DATETIME, DEFAULT NOW())" vertex="1">
+          <mxGeometry height="25" width="380" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="t15" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="updated_at (DATETIME)" vertex="1">
+          <mxGeometry height="25" width="380" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="t16" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="is_flagged (TINYINT, DEFAULT 0)" vertex="1">
+          <mxGeometry height="25" width="380" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="t17" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="notes (TEXT)" vertex="1">
+          <mxGeometry height="25" width="380" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="t18" parent="txn-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="token (VARCHAR 50)" vertex="1">
+          <mxGeometry height="25" width="380" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="log-header" parent="1" style="swimlane;startSize=30;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=13;" value="system_logs" vertex="1">
+          <mxGeometry height="260" width="350" x="1100" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="l1" parent="log-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fillColor=#fff2cc;strokeColor=#d6b656;" value="&amp;nbsp;log_id (INT, PK, AUTO_INCREMENT)" vertex="1">
+          <mxGeometry height="30" width="350" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="l2" parent="log-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fillColor=#f8cecc;strokeColor=#b85450;" value="&amp;nbsp;transaction_id (INT, FK → transactions, NULL)" vertex="1">
+          <mxGeometry height="25" width="350" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l3" parent="log-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="log_level (ENUM: &#39;INFO&#39;,&#39;WARNING&#39;,&#39;ERROR&#39;)" vertex="1">
+          <mxGeometry height="25" width="350" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="l4" parent="log-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="event_type (VARCHAR 50, NOT NULL)" vertex="1">
+          <mxGeometry height="25" width="350" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l5" parent="log-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="message (TEXT)" vertex="1">
+          <mxGeometry height="25" width="350" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="l6" parent="log-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="raw_sms_body (TEXT)" vertex="1">
+          <mxGeometry height="25" width="350" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="l7" parent="log-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="created_at (DATETIME, DEFAULT NOW())" vertex="1">
+          <mxGeometry height="25" width="350" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="l8" parent="log-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="etl_run_id (VARCHAR 36)" vertex="1">
+          <mxGeometry height="25" width="350" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="junc-header" parent="1" style="swimlane;startSize=30;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=12;" value="user_transaction_tags  ⟵ Junction Table (M:N)" vertex="1">
+          <mxGeometry height="175" width="380" x="560" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="j1" parent="junc-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fillColor=#fff2cc;strokeColor=#d6b656;" value="&amp;nbsp;tag_id (INT, PK, AUTO_INCREMENT)" vertex="1">
+          <mxGeometry height="30" width="380" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="j2" parent="junc-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fillColor=#f8cecc;strokeColor=#b85450;" value="&amp;nbsp;user_id (INT, FK → users.user_id)" vertex="1">
+          <mxGeometry height="25" width="380" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="j3" parent="junc-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fillColor=#f8cecc;strokeColor=#b85450;" value="transaction_id (INT, FK → transactions.transaction_id)" vertex="1">
+          <mxGeometry height="25" width="380" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="j4" parent="junc-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="role (ENUM: &#39;sender&#39;,&#39;receiver&#39;,&#39;agent&#39;)" vertex="1">
+          <mxGeometry height="25" width="380" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="j5" parent="junc-header" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;" value="tagged_at (DATETIME, DEFAULT NOW())" vertex="1">
+          <mxGeometry height="25" width="380" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="rel1" edge="1" parent="1" source="users-header" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;fontSize=11;fontStyle=1;startArrow=ERone;endArrow=ERmany;startFill=0;endFill=0;" target="txn-header" value="1 sends M">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="380" />
+              <mxPoint x="560" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel2" edge="1" parent="1" source="users-header" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;fontSize=11;fontStyle=1;startArrow=ERone;endArrow=ERmany;startFill=0;endFill=0;dashed=1;" target="txn-header" value="1 receives M">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="420" />
+              <mxPoint x="560" y="335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel3" edge="1" parent="1" source="cat-header" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=2;fontSize=11;fontStyle=1;startArrow=ERone;endArrow=ERmany;startFill=0;endFill=0;" target="txn-header" value="1 classifies M">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="720" />
+              <mxPoint x="560" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel4" edge="1" parent="1" source="txn-header" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d79b00;strokeWidth=2;fontSize=11;fontStyle=1;startArrow=ERone;endArrow=ERmany;startFill=0;endFill=0;" target="log-header" value="1 logs M">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel5" edge="1" parent="1" source="users-header" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=2;fontSize=11;fontStyle=1;startArrow=ERmany;endArrow=ERmany;startFill=0;endFill=0;dashed=1;" target="junc-header" value="M participates N">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="870" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel6" edge="1" parent="1" source="txn-header" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=2;startArrow=ERmany;endArrow=ERmany;startFill=0;endFill=0;dashed=1;" target="junc-header" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-bg" parent="1" style="swimlane;startSize=25;fillColor=#f5f5f5;strokeColor=#666;fontStyle=1;fontSize=11;" value="Legend" vertex="1">
+          <mxGeometry height="175" width="350" x="1100" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="legend-bg" style="text;html=1;align=left;spacingLeft=8;fillColor=#fff2cc;strokeColor=#d6b656;" value="&amp;nbsp;Primary Key (PK)" vertex="1">
+          <mxGeometry height="28" width="160" x="10" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="legend-bg" style="text;html=1;align=left;spacingLeft=8;fillColor=#f8cecc;strokeColor=#b85450;" value="Foreign Key (FK)" vertex="1">
+          <mxGeometry height="28" width="160" x="10" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="legend-bg" style="text;html=1;align=left;spacingLeft=8;" value="——  1:M Relationship" vertex="1">
+          <mxGeometry height="25" width="160" x="10" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="legend-bg" style="text;html=1;align=left;spacingLeft=8;" value="- - -  M:N (via junction)" vertex="1">
+          <mxGeometry height="25" width="160" x="10" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" parent="legend-bg" style="text;html=1;align=right;spacingRight=8;fontStyle=2;fontSize=10;" value="Group 10 · ALU · Week 2" vertex="1">
+          <mxGeometry height="25" width="160" x="180" y="140" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
